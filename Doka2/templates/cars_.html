@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Search</title>
+</head>
+<body>
+    <h1>Car Search</h1>
+    <form action="{% url 'car_search' %}" method="GET">
+        <input type="text" name="query" placeholder="Enter car name">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Search Results</h2>
+    <ul>
+    {% for car in cars %}
+        <li>{{ car.name }} - {{ car.description }} - Price: {{ car.price }}</li>
+    {% empty %}
+        <li>No cars found.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

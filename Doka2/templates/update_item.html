@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Item</title>
+</head>
+<body>
+    <h1>Update Item</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="item_id" value="{{ item.id }}">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{ item.name }}" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" required>{{ item.description }}</textarea>
+        <br>
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" value="{{ item.price }}" required>
+        <br>
+        <label for="photo">Photo:</label>
+        <input type="file" name="photo" id="photo">
+        <br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
